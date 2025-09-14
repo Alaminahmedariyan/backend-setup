@@ -7,8 +7,12 @@ export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     plugins: { js },
-    extends: ['js/recommended', "plugin:@typescript-eslint/recommended", "prettier"],
+    extends: ['js/recommended'],
     languageOptions: { globals: globals.node },
+  },
+  tseslint.configs.recommended,
+  {
+    ignores: ['node_modules', 'dist', '.node_modules/*'],
     rules: {
       'no-unused-vars': 'error',
       'no-unused-expressions': 'error',
@@ -17,5 +21,4 @@ export default defineConfig([
       'no-undef': 'error',
     },
   },
-  tseslint.configs.recommended,
 ]);
